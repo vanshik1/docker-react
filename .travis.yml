@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vanshik/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run vanshik/docker-react npm run test -- --coverage
+
+language: generic
